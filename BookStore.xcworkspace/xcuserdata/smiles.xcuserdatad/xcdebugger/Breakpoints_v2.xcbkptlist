@@ -10,12 +10,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookStore/Controllers/BookListCollectionViewController.swift"
-            timestampString = "583806400.321786"
+            timestampString = "583847411.912486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookStore/Provider/Webservice.swift"
+            timestampString = "583854068.396371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getURLImage(startIndex:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookStore.Webservice.getURLImage(startIndex: Swift.Int, completion: (() throws -&gt; BookStore.BookList) -&gt; ()) -&gt; ()"
+                  moduleName = "BookStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/smiles/Documents/TestsApps/BookStore/BookStore/Provider/Webservice.swift"
+                  timestampString = "583845204.30398"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "301">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BookStore.Webservice.getURLImage(startIndex: Swift.Int, completion: (() throws -&gt; BookStore.BookList) -&gt; ()) -&gt; ()"
+                  moduleName = "BookStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/smiles/Documents/TestsApps/BookStore/BookStore/Provider/Webservice.swift"
+                  timestampString = "583845204.310545"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "217">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookStore/Provider/Webservice.swift"
+            timestampString = "583854068.396564"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "completeUrl(startIndex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookStore/Provider/Webservice.swift"
+            timestampString = "583854068.396637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getURLImage(startIndex:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookStore.Webservice.getURLImage(startIndex: Swift.Int, completion: (() throws -&gt; BookStore.BookList) -&gt; ()) -&gt; ()"
+                  moduleName = "BookStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/smiles/Documents/TestsApps/BookStore/BookStore/Provider/Webservice.swift"
+                  timestampString = "583845204.323892"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "482">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () throws -&gt; BookStore.BookList in BookStore.Webservice.getURLImage(startIndex: Swift.Int, completion: (() throws -&gt; BookStore.BookList) -&gt; ()) -&gt; ()"
+                  moduleName = "BookStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/smiles/Documents/TestsApps/BookStore/BookStore/Provider/Webservice.swift"
+                  timestampString = "583845204.328352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "10">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookStore/Controllers/BookDetailViewController.swift"
+            timestampString = "583854068.396711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "setup(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

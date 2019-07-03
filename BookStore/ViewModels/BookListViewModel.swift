@@ -28,7 +28,7 @@ class BookListViewModel {
     
     private(set) var books: [BookViewModel] = []
     
-    private var page: Int = 0
+    private var startIndex: Int = 0
     private var service: ImageServiceProtocol
     private var fetchCompleted = false
     private var isFetching = false
@@ -41,13 +41,9 @@ class BookListViewModel {
 
 // MARK: - Private
 private extension BookListViewModel {
-    struct Constants {
-        static let pageSize: Int = 8
-        static let correctLabel: String = "Large Square"
-    }
     
     func refresh() {
-        page = 0
+        startIndex = 0
         fetchCompleted = false
     }
 }
@@ -55,7 +51,7 @@ private extension BookListViewModel {
 extension BookListViewModel {
     /// Possible cell types
     ///
-    /// - image: flickr cell
+    /// - image: book cell
     /// - loading: loading cell
     enum CellType {
         case book(BookViewModel)
@@ -96,13 +92,12 @@ extension BookListViewModel {
         }
         
         error = false
-        page += 1
+        startIndex += 1
         isFetching = true
         
-        service.getURLImage(page: page, perPage: Constants.pageSize) { [weak self] (callback) in
+        service.getURLImage(startIndex: startIndex) { [weak self] (callback) in
             guard let weakSelf = self else { return }
             do {
-                
                 let bookList = try callback()
                 
                 if refresh {
@@ -120,7 +115,7 @@ extension BookListViewModel {
             } catch {
                 weakSelf.delegate?.bookListViewModel(weakSelf, threw: error)
                 weakSelf.error = true
-                weakSelf.page -= 1
+                weakSelf.startIndex -= 1
                 weakSelf.delegate?.bookListViewModelWasFetch(weakSelf)
             }
             weakSelf.isFetching = false

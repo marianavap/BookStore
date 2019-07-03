@@ -27,13 +27,13 @@
 		528712B522CC01D400E1C3A8 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528712B422CC01D400E1C3A8 /* BookViewModel.swift */; };
 		528712B722CC070200E1C3A8 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528712B622CC070200E1C3A8 /* BookDetailViewController.swift */; };
 		52A21E4D22C6424C00030F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A21E4C22C6424C00030F28 /* AppDelegate.swift */; };
-		52A21E4F22C6424C00030F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A21E4E22C6424C00030F28 /* ViewController.swift */; };
 		52A21E5222C6424C00030F28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A21E5022C6424C00030F28 /* Main.storyboard */; };
 		52A21E5422C6424D00030F28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A21E5322C6424D00030F28 /* Assets.xcassets */; };
 		52A21E5722C6424D00030F28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A21E5522C6424D00030F28 /* LaunchScreen.storyboard */; };
 		52A21E6222C6424E00030F28 /* BookStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A21E6122C6424E00030F28 /* BookStoreTests.swift */; };
 		52A21E6D22C6424E00030F28 /* BookStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A21E6C22C6424E00030F28 /* BookStoreUITests.swift */; };
 		52A21E7F22C6431600030F28 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A21E7E22C6431600030F28 /* Webservice.swift */; };
+		52E12C5C22CCDA0E002441C2 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E12C5B22CCDA0E002441C2 /* UILabel+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,6 @@
 		528712B622CC070200E1C3A8 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		52A21E4922C6424C00030F28 /* BookStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A21E4C22C6424C00030F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52A21E4E22C6424C00030F28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52A21E5122C6424C00030F28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52A21E5322C6424D00030F28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A21E5622C6424D00030F28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		52A21E6C22C6424E00030F28 /* BookStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreUITests.swift; sourceTree = "<group>"; };
 		52A21E6E22C6424E00030F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A21E7E22C6431600030F28 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		52E12C5B22CCDA0E002441C2 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		77F52C52CCCDA718F2F9B6EA /* Pods-BookStoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStoreTests.release.xcconfig"; path = "Target Support Files/Pods-BookStoreTests/Pods-BookStoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7039EF29DA16BEB7A414BC3 /* Pods-BookStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.debug.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.debug.xcconfig"; sourceTree = "<group>"; };
 		D4C37376B76810E36EFFE47E /* Pods-BookStoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-BookStoreUITests/Pods-BookStoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,19 +149,11 @@
 		5254E91A22C64A410080DCC9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5254E91B22C64A410080DCC9 /* Network */,
+				5254E91C22C64A410080DCC9 /* Constants.swift */,
 				5254E91D22C64A410080DCC9 /* Protocol */,
 				5254E92122C64A410080DCC9 /* Extensions */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		5254E91B22C64A410080DCC9 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				5254E91C22C64A410080DCC9 /* Constants.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		5254E91D22C64A410080DCC9 /* Protocol */ = {
@@ -182,6 +174,7 @@
 				5254E92422C64A410080DCC9 /* UIColor+Extensions.swift */,
 				5254E92522C64A410080DCC9 /* URLSession+Extensions.swift */,
 				5254E92622C64A420080DCC9 /* UICollectionView+Extensions.swift */,
+				52E12C5B22CCDA0E002441C2 /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,7 +212,6 @@
 				52A21E7B22C6426E00030F28 /* Controllers */,
 				52A21E7A22C6425B00030F28 /* ViewModels */,
 				52A21E4C22C6424C00030F28 /* AppDelegate.swift */,
-				52A21E4E22C6424C00030F28 /* ViewController.swift */,
 				52A21E5322C6424D00030F28 /* Assets.xcassets */,
 				52A21E5522C6424D00030F28 /* LaunchScreen.storyboard */,
 				52A21E5822C6424D00030F28 /* Info.plist */,
@@ -537,7 +529,7 @@
 			files = (
 				522F2D0422C685920057FCE8 /* BookListCollectionViewController.swift in Sources */,
 				5254E92C22C64A420080DCC9 /* Reachability+Extensions.swift in Sources */,
-				52A21E4F22C6424C00030F28 /* ViewController.swift in Sources */,
+				52E12C5C22CCDA0E002441C2 /* UILabel+Extensions.swift in Sources */,
 				5254E92F22C64A420080DCC9 /* UICollectionView+Extensions.swift in Sources */,
 				528712B722CC070200E1C3A8 /* BookDetailViewController.swift in Sources */,
 				5254E91322C647880080DCC9 /* AllBooks.swift in Sources */,

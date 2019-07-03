@@ -11,7 +11,7 @@ import Reachability
 
 /// Image service
 protocol ImageServiceProtocol {
-    func getURLImage(page: Int, perPage: Int, completion: @escaping ((() throws -> (BookList)) -> Void))
+    func getURLImage(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void))
 }
 
 class Webservice: ImageServiceProtocol {
@@ -23,9 +23,9 @@ class Webservice: ImageServiceProtocol {
         self.reachability = reachability
     }
     
-    func getURLImage(page: Int, perPage: Int, completion: @escaping ((() throws -> (BookList)) -> Void)) {
+    func getURLImage(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void)) {
         
-        guard let urlImage = completeUrl(method: Constants.SIZES, page: 0, perpage: 0) else {
+        guard let urlImage = completeUrl(startIndex: startIndex) else {
             completion { throw AllError.generic }
             return
         }
@@ -51,17 +51,11 @@ class Webservice: ImageServiceProtocol {
 }
 
 private extension Webservice {
-    func completeUrl(method: String, page: Int, perpage: Int) -> URL? {
-        let urlComponents = URLComponents(string: Constants.WEBSERVICE_BASE_URL)
-//        urlComponents?.queryItems = [
-//            URLQueryItem(name: Constants.nojsoncallback, value: "\(Constants.JSONCALLBACK)"),
-//            URLQueryItem(name: Constants.format, value: "\(Constants.FORMAT)"),
-//            URLQueryItem(name: Constants.tags, value: "\(Constants.TAGS)"),
-//            URLQueryItem(name: Constants.apikey, value: "\(Constants.API_KEY)"),
-//            URLQueryItem(name: Constants.method, value: "\(method)"),
-//            URLQueryItem(name: Constants.page, value: "\(page)"),
-//            URLQueryItem(name: Constants.per_page, value: "\(perpage)")]
-        
+    func completeUrl(startIndex: Int) -> URL? {
+        var urlComponents = URLComponents(string: Constants.WEBSERVICE_BASE_URL)
+        urlComponents?.queryItems = [URLQueryItem(name: Constants.PLATFORM, value: Constants.PLATFORM),
+        URLQueryItem(name: Constants.MAXRESULT, value: Constants.VALUERESULT),
+        URLQueryItem(name: Constants.STARTINDEX, value: "\(startIndex)")]
         return urlComponents?.url
     }
     

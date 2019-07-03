@@ -21,16 +21,23 @@ class BookDetailViewController: UIViewController {
     }
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
+//            descriptionLabel.sizeToFit()
+//            descriptionLabel.adjustsFontSizeToFitWidth = true
+//            descriptionLabel.frame.size.height = descriptionLabel.optimalHeight
+          
             descriptionLabel.text = bookViewModel.volumeInfoDescription
         }
     }
     @IBOutlet weak var authorLabel: UILabel! {
         didSet {
-//            authorLabel.text = bookViewModel.authors
+            let authors = bookViewModel.authors.joined(separator: ", ")
+            authorLabel.text = authors
         }
     }
-    @IBOutlet weak var buyLinkLabel: UILabel! {
+    @IBOutlet weak var buyLinkLabel: UITextView! {
         didSet {
+            buyLinkLabel.isEditable = false
+            buyLinkLabel.dataDetectorTypes = .link
             buyLinkLabel.text = bookViewModel.buyLink
         }
     }
