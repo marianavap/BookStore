@@ -18,6 +18,11 @@ extension BookLoadingCollectionViewCell {
         activityIndicatorView.startAnimating()
         activityIndicatorView.color = .silver
     }
+   
+    func noIndicator () {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.hidesWhenStopped = true
+    }
 }
 
 // MARK: - Identifiable

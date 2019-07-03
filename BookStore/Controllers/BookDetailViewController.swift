@@ -9,6 +9,28 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    
+    @IBOutlet weak var favorite: UIButton? {
+        didSet {
+            let filtered = SectionCache.sharedInstance.favoriteBooks
+            
+            favorite?.isSelected = false
+            favorite?.setImage(UIImage(imageLiteralResourceName : "unfavorite"), for: .normal)
+            
+            if filtered.count != 0 {
+                for (key, _) in filtered {
+                    if key == bookViewModel.id {
+                        favorite?.isSelected = true
+                        favorite?.setImage(UIImage(imageLiteralResourceName : "favorite"), for: .normal)
+                    }
+                }
+            } else {
+                favorite?.isSelected = false
+                favorite?.setImage(UIImage(imageLiteralResourceName : "unfavorite"), for: .normal)
+            } 
+        }
+    }
+    
     @IBOutlet weak var bookImageView: UIImageView! {
         didSet {
             bookImageView.setImage(with: bookViewModel.thumbnail)
@@ -21,10 +43,6 @@ class BookDetailViewController: UIViewController {
     }
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
-//            descriptionLabel.sizeToFit()
-//            descriptionLabel.adjustsFontSizeToFitWidth = true
-//            descriptionLabel.frame.size.height = descriptionLabel.optimalHeight
-          
             descriptionLabel.text = bookViewModel.volumeInfoDescription
         }
     }
@@ -41,7 +59,19 @@ class BookDetailViewController: UIViewController {
             buyLinkLabel.text = bookViewModel.buyLink
         }
     }
- 
+    
+    @IBAction func favoriteButton (sender: UIButton) {
+        bookViewModel.allFavoriteBooks(book: bookViewModel)
+        
+        if favorite?.isSelected == false {
+            favorite?.isSelected = true
+            favorite?.setImage(UIImage(imageLiteralResourceName : "favorite"), for: .normal)
+        } else {
+            favorite?.isSelected = false
+            favorite?.setImage(UIImage(imageLiteralResourceName : "unfavorite"), for: .normal)
+        }
+    }
+    
     private var bookViewModel: BookViewModel!
     
     override func viewWillDisappear(_ animated: Bool) {

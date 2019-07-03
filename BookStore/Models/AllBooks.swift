@@ -19,6 +19,7 @@ struct AllBooks: Codable {
 
 // MARK: - Item
 struct Item: Codable {
+    let id: String?
     let volumeInfo: VolumeInfo
     let saleInfo: SaleInfo
 }

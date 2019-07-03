@@ -21,6 +21,7 @@ class BookListCollectionViewController: UICollectionViewController {
     }
     
     private var bookListViewModel = BookListViewModel()
+    private var isFavorite : Bool = false
     
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -37,6 +38,7 @@ extension BookListCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookListViewModel.delegate = self
+        isFavorite = false
         collectionView?.refreshControl = refreshControl
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -82,8 +84,14 @@ extension BookListCollectionViewController {
             return cell
         case .loading:
             let cell = collectionView.dequeueReusableCell(viewType: BookLoadingCollectionViewCell.self, for: indexPath)
-            bookListViewModel.fetch()
-            cell.setup()
+          
+            if isFavorite == false {
+                bookListViewModel.fetch()
+                cell.setup()
+            } else {
+                cell.noIndicator()
+            }
+            
             return cell
         }
     }
@@ -135,5 +143,17 @@ extension BookListCollectionViewController: UICollectionViewDelegateFlowLayout {
         return Constants.insets
     }
 
+    @IBAction func seeAllFavorites () {
+        isFavorite = true
+        bookListViewModel.favoritesBooks()
+        
+        self.collectionView.reloadData()
+    }
+    
+    @IBAction func clearFavorites () {
+        isFavorite = false
+        self.collectionView.reloadData()
+    }
+    
 }
 

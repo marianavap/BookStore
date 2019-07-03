@@ -79,6 +79,24 @@ extension BookListViewModel {
         return .book(books[indexPath.row])
     }
     
+    //Update values to show only favorite books
+    func favoritesBooks() {
+        
+//        books.append(contentsOf: bookList.books.map({ (book) -> BookViewModel in
+//            BookViewModel(book)
+//        }))
+//        books = SectionCache.sharedInstance.favoriteBooks.values
+
+        let filteredBooks = SectionCache.sharedInstance.favoriteBooks
+    
+        var favorite: [BookViewModel] = []
+        for (_, value) in filteredBooks {
+            favorite.append(value)
+        }
+        
+        books = favorite
+    }
+    
     /// Fetches book list
     ///
     /// - Parameter refresh: True if screen is being refreshed
