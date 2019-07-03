@@ -8,6 +8,9 @@
 
 import Foundation
 
+import UIKit
+import Kingfisher
+
 struct BookViewModel {
     private(set) var smallThumbnail: String = String()
     private(set) var thumbnail: String = String()

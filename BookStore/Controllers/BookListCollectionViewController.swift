@@ -56,13 +56,12 @@ private extension BookListCollectionViewController {
     }
 }
 
-
 // MARK: - Delegate
 extension BookListCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if case .book = bookListViewModel.cellType(at: indexPath),
             let bookCell = cell as? BookCollectionViewCell {
-            bookCell.bannerImage.kf.cancelDownloadTask()
+            bookCell.bookImage?.kf.cancelDownloadTask()
         }
     }
 }
@@ -135,5 +134,6 @@ extension BookListCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.insets
     }
+
 }
 

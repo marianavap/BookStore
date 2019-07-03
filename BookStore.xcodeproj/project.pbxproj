@@ -214,7 +214,6 @@
 				5254E91A22C64A410080DCC9 /* Common */,
 				5254E91422C648630080DCC9 /* Infrastructure */,
 				5254E91122C647790080DCC9 /* Models */,
-				52A21E8022C645AF00030F28 /* Business */,
 				52A21E7D22C642C100030F28 /* Provider */,
 				52A21E7C22C6427400030F28 /* Views */,
 				52A21E7B22C6426E00030F28 /* Controllers */,
@@ -280,13 +279,6 @@
 				52A21E7E22C6431600030F28 /* Webservice.swift */,
 			);
 			path = Provider;
-			sourceTree = "<group>";
-		};
-		52A21E8022C645AF00030F28 /* Business */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Business;
 			sourceTree = "<group>";
 		};
 		90DD6CCD6EFC62EDE4605224 /* Frameworks */ = {

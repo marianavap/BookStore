@@ -9,7 +9,9 @@
 import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var bookImage: UIImageView!
+    
+    private(set) var bookViewModel: BookViewModel!
     
     override func awakeFromNib() {
         super .awakeFromNib()
@@ -25,14 +27,15 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        bannerImage.kf.cancelDownloadTask()
+        bookImage.kf.cancelDownloadTask()
     }
 }
 
 // MARK: - Auxiliar methods
 extension BookCollectionViewCell {
     func setup(book: BookViewModel) {
-        bannerImage.setImage(with: book.smallThumbnail)
+        bookViewModel = book
+        bookImage.setImage(with: book.smallThumbnail)
     }
 }
 
