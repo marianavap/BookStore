@@ -13,20 +13,13 @@ class BookViewModelTests: BaseTests {
     
     func testViewModelInit() {
         //Arrange
-//        let book = Item(id: 12,
-//                        imageURL: "image url",
-//                        name: "name",
-//                        tagline: "tagline",
-//                        alcoholByVolume: 20,
-//                        internationalBitternessUnits: 10,
-//                        description: "description")
 
         let book = Item(id: "KWuCCwAAQBAJ",
-                        volumeInfo: VolumeInfo.init(title: "",
-                                                    authors: [""],
-                                                    volumeInfoDescription: "",
-                                                    imageLinks: ImageLinks.init(smallThumbnail: "",
-                                                                                thumbnail: "")), saleInfo: SaleInfo.init(buyLink: ""))
+                        volumeInfo: VolumeInfo.init(title: "title",
+                                                    authors: ["authors"],
+                                                    volumeInfoDescription: "description",
+                                                    imageLinks: ImageLinks.init(smallThumbnail: "smallThumbnail",
+                                                                                thumbnail: "thumbnail")), saleInfo: SaleInfo.init(buyLink: "buyLink"))
         
         //Act
         let vm = BookViewModel(book)

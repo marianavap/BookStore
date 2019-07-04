@@ -155,6 +155,14 @@ extension BookListCollectionViewController: UICollectionViewDelegateFlowLayout {
         self.collectionView.reloadData()
     }
     
+    func verifyFavoriteValues () {
+        if isFavorite == true {
+            bookListViewModel.favoritesBooks()
+            self.collectionView.reloadData()
+        }
+       
+    }
+    
     @IBAction func clearFavorites () {
         isFavorite = false
         self.navigationItem.leftBarButtonItem = nil
@@ -162,10 +170,7 @@ extension BookListCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if isFavorite == true {
-            bookListViewModel.fetch(refresh: true)
-            self.navigationItem.leftBarButtonItem = nil  
-        }
+        verifyFavoriteValues()
     }
 }
 

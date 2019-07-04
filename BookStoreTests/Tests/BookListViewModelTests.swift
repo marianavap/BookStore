@@ -60,11 +60,11 @@ class BookListViewModelTests: BaseTests {
         //Arrange
         let expectation = self.expectation(description: "Delegate was called")
         let book = Item(id: "KWuCCwAAQBAJ",
-                        volumeInfo: VolumeInfo.init(title: "",
-                                                    authors: [""],
-                                                    volumeInfoDescription: "",
-                                                    imageLinks: ImageLinks.init(smallThumbnail: "",
-                                                                                thumbnail: "")), saleInfo: SaleInfo.init(buyLink: ""))
+                        volumeInfo: VolumeInfo.init(title: "title",
+                                                    authors: ["authors"],
+                                                    volumeInfoDescription: "description",
+                                                    imageLinks: ImageLinks.init(smallThumbnail: "smallThumbnail",
+                                                                                thumbnail: "thumbnail")), saleInfo: SaleInfo.init(buyLink: "buyLink"))
         let bookList = BookList(books: [book])
         let bookServiceMock = BookServiceMock(bookList: bookList)
         let vm = BookListViewModel(appService: bookServiceMock)
@@ -79,21 +79,13 @@ class BookListViewModelTests: BaseTests {
         
         //Assert
         waitForExpectations(timeout: 1)
-//        XCTAssertEqual(vm.beers.count, beerList.beers.count)
-//        XCTAssertEqual(vm.beers.first?.id, beer.id)
-//        XCTAssertEqual(vm.beers.first?.imageURL, beer.imageURL)
-//        XCTAssertEqual(vm.beers.first?.name, beer.name)
-//        XCTAssertEqual(vm.beers.first?.tagline, beer.tagline)
-//        XCTAssertEqual(vm.beers.first?.abvString, "abv 20.0%")
-//        XCTAssertEqual(vm.beers.first?.ibuString, "ibu 10.0")
-//        XCTAssertEqual(vm.beers.first?.description, beer.description)
-        
-//        XCTAssertEqual(vm.id, book.id)
-//        XCTAssertEqual(vm.smallThumbnail, book.volumeInfo.imageLinks.smallThumbnail)
-//        XCTAssertEqual(vm.title, book.volumeInfo.title)
-//        XCTAssertEqual(vm.volumeInfoDescription, book.volumeInfo.volumeInfoDescription)
-//        XCTAssertEqual(vm.thumbnail, book.volumeInfo.imageLinks.thumbnail)
-//        XCTAssertEqual(vm.buyLink, book.saleInfo.buyLink)
+        XCTAssertEqual(vm.books.count, 1)
+        XCTAssertEqual(vm.books.first?.title, book.volumeInfo.title)
+        XCTAssertEqual(vm.books.first?.authors[0], book.volumeInfo.authors?[0])
+        XCTAssertEqual(vm.books.first?.volumeInfoDescription, book.volumeInfo.volumeInfoDescription)
+        XCTAssertEqual(vm.books.first?.smallThumbnail, book.volumeInfo.imageLinks.smallThumbnail)
+        XCTAssertEqual(vm.books.first?.thumbnail, book.volumeInfo.imageLinks.thumbnail)
+        XCTAssertEqual(vm.books.first?.buyLink, book.saleInfo.buyLink)
     }
     
     func testErrorFetch() {
@@ -123,13 +115,13 @@ class BookListViewModelTests: BaseTests {
         
         //Arrange
         var expectation = self.expectation(description: "Params first page assertion")
-        let bookList = BookList(books: [Item])
-        let bookServiceMock = BookServiceMock(bookList: bookList) { (startIndex) in
+        let bookList = BookList.self
+            //BookList(books: [Item])
+        let bookServiceMock = BookServiceMock(bookList: bookList.init()) { (startIndex) in
             expectation.fulfill()
-            XCTAssertEqual(page, 1)
-            XCTAssertEqual(perPage, 8)
+            XCTAssertEqual(startIndex, 1)
         }
-        let vm = BookListViewModel(bookService: bookServiceMock)
+        let vm = BookListViewModel(appService: bookServiceMock)
         
         //Act
         vm.fetch()
@@ -137,16 +129,13 @@ class BookListViewModelTests: BaseTests {
         //Assert
         waitForExpectations(timeout: 1)
         
-        
-        
         //Second page
         
         //Arrange
         expectation = self.expectation(description: "Params second page assertion")
         bookServiceMock.paramsAssertion = { (startIndex) in
             expectation.fulfill()
-            XCTAssertEqual(page, 2)
-            XCTAssertEqual(perPage, 8)
+            XCTAssertEqual(startIndex, 2)
         }
         
         //Act
@@ -162,8 +151,7 @@ class BookListViewModelTests: BaseTests {
         expectation = self.expectation(description: "Params refresh assertion")
         bookServiceMock.paramsAssertion = { (startIndex) in
             expectation.fulfill()
-            XCTAssertEqual(page, 1)
-            XCTAssertEqual(perPage, 8)
+            XCTAssertEqual(startIndex, 1)
         }
         
         //Act
@@ -176,11 +164,11 @@ class BookListViewModelTests: BaseTests {
     func testCellsTypeWithLoading() {
         //Arrange
         let book = Item(id: "KWuCCwAAQBAJ",
-                        volumeInfo: VolumeInfo.init(title: "",
-                                                    authors: [""],
-                                                    volumeInfoDescription: "",
-                                                    imageLinks: ImageLinks.init(smallThumbnail: "",
-                                                                                thumbnail: "")), saleInfo: SaleInfo.init(buyLink: ""))
+                        volumeInfo: VolumeInfo.init(title: "title",
+                                                    authors: ["authors"],
+                                                    volumeInfoDescription: "description",
+                                                    imageLinks: ImageLinks.init(smallThumbnail: "smallThumbnail",
+                                                                                thumbnail: "thumbnail")), saleInfo: SaleInfo.init(buyLink: "buyLink"))
         let bookList = BookList(books: [book])
         let bookServiceMock = BookServiceMock(bookList: bookList)
         let vm = BookListViewModel(appService: bookServiceMock)
@@ -201,11 +189,11 @@ class BookListViewModelTests: BaseTests {
     func testCellsTypeWithoutLoading() {
         //Arrange
         let book = Item(id: "KWuCCwAAQBAJ",
-                        volumeInfo: VolumeInfo.init(title: "",
-                                                    authors: [""],
-                                                    volumeInfoDescription: "",
-                                                    imageLinks: ImageLinks.init(smallThumbnail: "",
-                                                                                thumbnail: "")), saleInfo: SaleInfo.init(buyLink: ""))
+                        volumeInfo: VolumeInfo.init(title: "title",
+                                                    authors: ["authors"],
+                                                    volumeInfoDescription: "description",
+                                                    imageLinks: ImageLinks.init(smallThumbnail: "smallThumbnail",
+                                                                                thumbnail: "thumbnail")), saleInfo: SaleInfo.init(buyLink: "buyLink"))
         let bookListFirstPage = BookList(books: [book])
         let bookListSecondPage = BookList(books: [])
         let bookServiceMock = BookServiceMock(bookList: bookListFirstPage)
@@ -228,11 +216,11 @@ class BookListViewModelTests: BaseTests {
     func testCellsRefresh() {
         //Arrange
         let book = Item(id: "KWuCCwAAQBAJ",
-                        volumeInfo: VolumeInfo.init(title: "",
-                                                    authors: [""],
-                                                    volumeInfoDescription: "",
-                                                    imageLinks: ImageLinks.init(smallThumbnail: "",
-                                                                                thumbnail: "")), saleInfo: SaleInfo.init(buyLink: ""))
+                        volumeInfo: VolumeInfo.init(title: "title",
+                                                    authors: ["authors"],
+                                                    volumeInfoDescription: "description",
+                                                    imageLinks: ImageLinks.init(smallThumbnail: "smallThumbnail",
+                                                                                thumbnail: "thumbnail")), saleInfo: SaleInfo.init(buyLink: "buyLink"))
         
         let bookListBeforeRefresh = BookList(books: [book])
         let bookListAfterRefresh = BookList(books: [])

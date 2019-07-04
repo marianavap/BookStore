@@ -49,7 +49,7 @@ class BookServiceTests: BaseTests {
         }
         
         //Assert
-        waitForExpectations(timeout: 1)
+        waitForExpectations(timeout: 20)
     }
     
     func testApiError() {
@@ -64,26 +64,6 @@ class BookServiceTests: BaseTests {
             do {
                 _ = try callback()
             } catch BookStoreError.generic {
-                expectation.fulfill()
-            } catch { }
-        }
-        
-        //Assert
-        waitForExpectations(timeout: 1)
-    }
-    
-    func testParseError() {
-        //Arrange
-        let urlSessionMock = URLSessionMock.init(file: "BookParseError")
-        let expectation = self.expectation(description: "Expect parse error")
-        
-        let service = BookStoreProvider(session: urlSessionMock, reachability: ReachabilityMock())
-        
-        //Act
-        service.getBookStore(startIndex: 0) { callback in
-            do {
-                _ = try callback()
-            } catch BookStoreError.parse {
                 expectation.fulfill()
             } catch { }
         }
@@ -110,19 +90,14 @@ class BookServiceTests: BaseTests {
         
         //Assert
         waitForExpectations(timeout: 1)
+        
         XCTAssertEqual(bookList.books.count, 20)
-        XCTAssertEqual(bookList.books[0].id, "KWuCCwAAQBAJ")
-        
-        
-        
-//        XCTAssertEqual(beerList.beers.count, 1)
-//        XCTAssertEqual(beerList.beers[0].id, 1)
-//        XCTAssertEqual(beerList.beers[0].imageURL, "https://images.punkapi.com/v2/keg.png")
-//        XCTAssertEqual(beerList.beers[0].name, "Buzz")
-//        XCTAssertEqual(beerList.beers[0].tagline, "A Real Bitter Experience.")
-//        XCTAssertEqual(beerList.beers[0].alcoholByVolume, 4.5)
-//        XCTAssertEqual(beerList.beers[0].internationalBitternessUnits, 60.0)
-//        XCTAssertEqual(beerList.beers[0].description, "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.")
+        XCTAssertEqual(bookList.books.first?.volumeInfo.title, "iOS")
+        XCTAssertEqual(bookList.books.first?.volumeInfo.authors?[0], "Rafael Steil")
+        XCTAssertEqual(bookList.books.first?.volumeInfo.volumeInfoDescription, "Uma grande parcela do mercado de celulares e tablets atualmente pertence à Apple, com seus famosos iPhone e iPad. Aprenda a criar aplicações que explorem o máximo da poderosa plataforma sobre a qual esses dispositivos funcionam, o iOS. Aprenda o Objective-C de forma descomplicada e comece em poucas horas a criar suas aplicações e testá-las em seus dispositivos e nos emuladores. Nessa nova versão, completamente revisada, há 100% de compatibilidade com Xcode 5 e iOS 7, um novo capítulo sobre storyboards, todas as imagens com o layout do iOS 7 e exemplos revisados e aprimorados.")
+        XCTAssertEqual(bookList.books.first?.volumeInfo.imageLinks.smallThumbnail, "http://books.google.com/books/content?id=KWuCCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api")
+        XCTAssertEqual(bookList.books.first?.volumeInfo.imageLinks.thumbnail, "http://books.google.com/books/content?id=KWuCCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api")
+        XCTAssertEqual(bookList.books.first?.saleInfo.buyLink, "https://play.google.com/store/books/details?id=KWuCCwAAQBAJ&rdid=book-KWuCCwAAQBAJ&rdot=1&source=gbs_api")
     }
     
     func testGeneratedURL() {
