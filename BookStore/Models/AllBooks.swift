@@ -8,11 +8,6 @@
 
 import Foundation
 
-//struct ValuesURL: Codable {
-//    var getItems: [Item] = []
-//}
-
-// MARK: - Welcome
 struct AllBooks: Codable {
     let items: [Item]
 }

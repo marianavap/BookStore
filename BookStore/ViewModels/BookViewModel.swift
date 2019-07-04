@@ -16,7 +16,6 @@ struct BookViewModel {
     private(set) var volumeInfoDescription: String = String()
     private(set) var buyLink: String = String()
     private(set) var id: String = String()
-
 }
 
 extension BookViewModel {

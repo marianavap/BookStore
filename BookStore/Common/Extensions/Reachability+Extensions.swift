@@ -10,7 +10,7 @@
 import Reachability
 
 // MARK: - ImageReachability
-extension Reachability: ProjectReachability {
+extension Reachability: BookStoreReachability {
     
     /// True if internet is reachable
     var internetIsReachable: Bool {

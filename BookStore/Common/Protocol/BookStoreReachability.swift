@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ProjectReachability {
+protocol BookStoreReachability {
     
     /// True if internet is available
     var internetIsReachable: Bool { get }

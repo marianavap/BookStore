@@ -10,23 +10,23 @@ import Foundation
 import Reachability
 
 /// Image service
-protocol ImageServiceProtocol {
-    func getURLImage(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void))
+protocol BookStoreServiceProtocol {
+    func getBookStore(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void))
 }
 
-class Webservice: ImageServiceProtocol {
-    private let session: URLSession
-    private let reachability: Reachability
+class BookStoreProvider: BookStoreServiceProtocol {
+    private let session: BookStoreURLSession
+    private let reachability: BookStoreReachability
     
-    init(session: URLSession = URLSession.shared, reachability: Reachability = Reachability(hostName: Constants.WEBSERVICE_BASE_URL)) {
+    init(session: BookStoreURLSession = URLSession.shared, reachability: BookStoreReachability = Reachability(hostName: Constants.WEBSERVICE_BASE_URL)) {
         self.session = session
         self.reachability = reachability
     }
     
-    func getURLImage(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void)) {
+    func getBookStore(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void)) {
         
         guard let urlImage = completeUrl(startIndex: startIndex) else {
-            completion { throw AllError.generic }
+            completion { throw BookStoreError.generic }
             return
         }
         
@@ -38,11 +38,11 @@ class Webservice: ImageServiceProtocol {
                 do {
                     let books = try JSONDecoder().decode(AllBooks.self, from: data)
                     
-                    let imgList = BookList(books: books.items)
+                    let bookList = BookList(books: books.items)
                     
-                    completion { imgList }
+                    completion { bookList }
                 } catch {
-                    completion { throw AllError.parse(String(describing: Item.self)) }
+                    completion { throw BookStoreError.parse(String(describing: Item.self)) }
                 }
             }
         }
@@ -50,13 +50,12 @@ class Webservice: ImageServiceProtocol {
     
 }
 
-private extension Webservice {
+private extension BookStoreProvider {
     func completeUrl(startIndex: Int) -> URL? {
         var urlComponents = URLComponents(string: Constants.WEBSERVICE_BASE_URL)
-        urlComponents?.queryItems = [URLQueryItem(name: Constants.PLATFORM, value: Constants.PLATFORM),
+        urlComponents?.queryItems = [URLQueryItem(name: Constants.PLATFORM, value: Constants.IOS),
         URLQueryItem(name: Constants.MAXRESULT, value: Constants.VALUERESULT),
         URLQueryItem(name: Constants.STARTINDEX, value: "\(startIndex)")]
         return urlComponents?.url
     }
-    
 }

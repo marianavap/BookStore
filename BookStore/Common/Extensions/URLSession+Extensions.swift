@@ -10,7 +10,7 @@
 import Foundation
 
 // MARK: - FlickrURLSession
-extension URLSession: ProjectURLSession {
+extension URLSession: BookStoreURLSession {
     
     /// Data task to load
     ///

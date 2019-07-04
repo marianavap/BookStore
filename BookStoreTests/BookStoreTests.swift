@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AppDefaultForTests
+@testable import Pods_BookStore
 
 class AppDefaultForTestsTests: XCTestCase {
 

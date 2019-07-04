@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ProjectURLSession {
+protocol BookStoreURLSession {
     
     /// Load data from url
     ///

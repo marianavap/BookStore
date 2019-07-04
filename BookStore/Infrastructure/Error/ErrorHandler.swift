@@ -18,7 +18,7 @@ struct HandleError {
     /// - Parameter error: the erro
     static func handle(error: Error) {
         
-        if let apiError = error as? AllError {
+        if let apiError = error as? BookStoreError {
             handleBusiness(error: apiError)
         } else {
             showError()
@@ -28,7 +28,7 @@ struct HandleError {
 
 // MARK: - Private
 private extension HandleError {
-    static func handleBusiness(error: AllError) {
+    static func handleBusiness(error: BookStoreError) {
         switch error {
         case .parse(let message):
             print("Parse error - (\(message))")

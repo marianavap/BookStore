@@ -14,7 +14,7 @@ import Foundation
 /// - generic: Unknown error
 /// - parse: parse error
 /// - offlineMode: user is offline
-enum AllError: Error {
+enum BookStoreError: Error {
     case httpError(Int)
     case generic
     case parse(String)

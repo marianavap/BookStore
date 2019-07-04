@@ -29,19 +29,18 @@ class BookListViewModel {
     private(set) var books: [BookViewModel] = []
     
     private var startIndex: Int = 0
-    private var service: ImageServiceProtocol
+    private var service: BookStoreServiceProtocol
     private var fetchCompleted = false
     private var isFetching = false
     private var error = false
     
-    init(appService: ImageServiceProtocol = Webservice()) {
+    init(appService: BookStoreServiceProtocol = BookStoreProvider()) {
         self.service = appService
     }
 }
 
 // MARK: - Private
 private extension BookListViewModel {
-    
     func refresh() {
         startIndex = 0
         fetchCompleted = false
@@ -107,7 +106,7 @@ extension BookListViewModel {
         startIndex += 1
         isFetching = true
         
-        service.getURLImage(startIndex: startIndex) { [weak self] (callback) in
+        service.getBookStore(startIndex: startIndex) { [weak self] (callback) in
             guard let weakSelf = self else { return }
             do {
                 let bookList = try callback()
