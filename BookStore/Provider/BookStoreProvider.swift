@@ -25,6 +25,11 @@ class BookStoreProvider: BookStoreServiceProtocol {
     
     func getBookStore(startIndex: Int, completion: @escaping ((() throws -> (BookList)) -> Void)) {
         
+        guard reachability.internetIsReachable else {
+            completion { throw BookStoreError.offlineMode }
+            return
+        }
+        
         guard let urlImage = completeUrl(startIndex: startIndex) else {
             completion { throw BookStoreError.generic }
             return
