@@ -52,7 +52,6 @@ class BookStoreProvider: BookStoreServiceProtocol {
             }
         }
     }
-    
 }
 
 private extension BookStoreProvider {
