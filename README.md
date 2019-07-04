@@ -1,11 +1,11 @@
 # BookStore
-Teste IT Sector
+Test IT Sector
 
 - XCode 10.2.1
 - Swif 5
 
-MVVM Architecture with Commom, Infrastructure and Provider layer more
-Unit Test and XCUITest
+MVVM Architecture with Commom, Infrastructure and Provider layers 
+UnitTest and XCUITest
 
 Dependencies
   - pod 'Kingfisher', '~>5.1'
@@ -15,9 +15,10 @@ Dependencies
   - pod 'SwiftyJSON'
 
 Project Features
-  - Google API request iOS books loading in a UICollectionView;
+  - Google API filtering iOS books loading in a UICollectionView;
   - Infinity Scroll;
-  - Slow down Scroll;
-  - Detail book view with Thumbnail, Title, Authors, Link to buy going to Safari browser and a Favorite feature;
-  - Filter to see all the favorites books;
-  - Available to run iPhone and iPad device.
+  - Refresh Scroll;
+  - Detail book view containing Thumbnail, Title, Authors, Description and Buy link directing to Safari browser;
+  - Set favorite;
+  - Filter to show all the favorite books;
+  - Usable in iPhone and iPad.
