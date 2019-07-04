@@ -1,6 +1,6 @@
 //
-//  FlikerLoadingCell.swift
-//  imagegalleryapp
+//  BookLoadingCollectionViewCell.swift
+//  BookStore
 //
 //  Created by Mariana V. A. Souza on 31/05/19.
 //  Copyright © 2019 Mariana. All rights reserved.
