@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AppDefaultForTests
+//  BookStore
 //
 //  Created by Mariana on 28/06/19.
 //  Copyright © 2019 Mariana. All rights reserved.
@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        UINavigationBar.appearance().barTintColor = UIColor.silver
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.blackCoral]
+
+        UIBarButtonItem.appearance().tintColor = UIColor.blackCoral
         return true
     }
 

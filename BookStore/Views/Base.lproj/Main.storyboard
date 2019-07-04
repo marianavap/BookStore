@@ -34,6 +34,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-45-mn2">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="ImageCell"/>
                                         </imageView>
                                     </subviews>
                                 </view>
@@ -43,6 +44,9 @@
                                     <constraint firstItem="2gP-45-mn2" firstAttribute="top" secondItem="C4q-vY-xIg" secondAttribute="top" id="uh6-3s-soq"/>
                                     <constraint firstItem="2gP-45-mn2" firstAttribute="height" secondItem="C4q-vY-xIg" secondAttribute="height" id="yvf-SD-k0u"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibility" value="BookCell"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="bookImage" destination="2gP-45-mn2" id="a7P-wf-QjP"/>
                                     <segue destination="BVv-Wq-Qnr" kind="show" id="npf-98-M8x"/>
@@ -71,6 +75,9 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="BookListScreen"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="RCO-sd-Dz6" id="AB8-MQ-Xap"/>
                             <outlet property="delegate" destination="RCO-sd-Dz6" id="sCG-cz-Oq1"/>
@@ -88,9 +95,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="BookListScreen"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="clear" destination="aWX-gc-gcw" id="gFy-2O-dYa"/>
                     </connections>

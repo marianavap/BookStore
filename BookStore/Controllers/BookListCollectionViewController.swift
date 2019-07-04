@@ -1,6 +1,6 @@
 //
-//  ProjectViewController.swift
-//  AppDefaultForTests
+//  BookListCollectionViewController.swift
+//  BookStore
 //
 //  Created by Mariana on 28/06/19.
 //  Copyright © 2019 Mariana. All rights reserved.
@@ -40,10 +40,8 @@ extension BookListCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookListViewModel.delegate = self
-//        self.clear?.isEnabled = false
         
         self.navigationItem.leftBarButtonItem = nil
-        
         collectionView?.refreshControl = refreshControl
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }

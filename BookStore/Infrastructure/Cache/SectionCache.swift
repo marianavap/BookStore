@@ -2,7 +2,7 @@
 //  SectionCache.swift
 //  BookStore
 //
-//  Created by Smiles on 03/07/19.
+//  Created by Mariana V. A. Souza on 03/07/19.
 //  Copyright © 2019 Mariana. All rights reserved.
 //
 

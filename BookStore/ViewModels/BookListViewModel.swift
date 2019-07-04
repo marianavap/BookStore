@@ -1,6 +1,6 @@
 //
-//  AppViewModel.swift
-//  AppDefaultForTests
+//  BookListViewModel.swift
+//  BookStore
 //
 //  Created by Mariana on 28/06/19.
 //  Copyright © 2019 Mariana. All rights reserved.

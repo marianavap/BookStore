@@ -2,7 +2,7 @@
 //  BookStoreTests.swift
 //  BookStoreUITests
 //
-//  Created by Smiles on 04/07/19.
+//  Created by Mariana V. A. Souza on 04/07/19.
 //  Copyright © 2019 Mariana. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ class BookStoreTests: BaseTests {
     }
     
     func testDetails() {
-        let cell = BookListScreen.notVisibleBookCell()
+        let cell = BookListScreen.visibleBookCell()
         waitElementExists(element: cell, scrollElement: BookListScreen.screen, timeout: 2)
         cell.tap()
         BookScreen.waitScreen(testCase: self)

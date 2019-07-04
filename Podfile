@@ -5,7 +5,7 @@ target 'BookStore' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppDefaultForTests
+  # Pods for BookStore
 	
     pod 'Kingfisher', '~>5.1'
   	pod 'SwiftMessages', '~>6.0'
@@ -14,13 +14,11 @@ target 'BookStore' do
   	pod 'SwiftyJSON'
 
   target 'BookStoreTests' do
-    inherit! :search_paths
-    # Pods for testing
+    inherit! :complete
+   
   end
 
   target 'BookStoreUITests' do
-    inherit! :search_paths
-    # Pods for testing
+    inherit! :complete
   end
-
 end

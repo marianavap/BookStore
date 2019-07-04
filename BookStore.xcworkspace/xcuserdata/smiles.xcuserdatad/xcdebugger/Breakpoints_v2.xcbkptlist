@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BookStore/Controllers/BookListCollectionViewController.swift"
-            timestampString = "583958656.8226939"
+            filePath = "BookStoreUITests/Tests/BookStoreTests.swift"
+            timestampString = "583963288.156885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "verifyFavoriteValues()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BookStore/Controllers/BookListCollectionViewController.swift"
-            timestampString = "583958656.823216"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "clearFavorites()"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "testDetails()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
