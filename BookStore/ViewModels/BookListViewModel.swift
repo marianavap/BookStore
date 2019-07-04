@@ -81,12 +81,6 @@ extension BookListViewModel {
     
     //Update values to show only favorite books
     func favoritesBooks() {
-        
-//        books.append(contentsOf: bookList.books.map({ (book) -> BookViewModel in
-//            BookViewModel(book)
-//        }))
-//        books = SectionCache.sharedInstance.favoriteBooks.values
-
         let filteredBooks = SectionCache.sharedInstance.favoriteBooks
     
         var favorite: [BookViewModel] = []

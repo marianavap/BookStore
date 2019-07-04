@@ -23,6 +23,8 @@ class BookListCollectionViewController: UICollectionViewController {
     private var bookListViewModel = BookListViewModel()
     private var isFavorite : Bool = false
     
+    @IBOutlet var clear: UIBarButtonItem?
+    
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self,
@@ -38,7 +40,10 @@ extension BookListCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookListViewModel.delegate = self
-        isFavorite = false
+//        self.clear?.isEnabled = false
+        
+        self.navigationItem.leftBarButtonItem = nil
+        
         collectionView?.refreshControl = refreshControl
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -146,14 +151,21 @@ extension BookListCollectionViewController: UICollectionViewDelegateFlowLayout {
     @IBAction func seeAllFavorites () {
         isFavorite = true
         bookListViewModel.favoritesBooks()
-        
+        self.navigationItem.leftBarButtonItem = self.clear
         self.collectionView.reloadData()
     }
     
     @IBAction func clearFavorites () {
         isFavorite = false
-        self.collectionView.reloadData()
+        self.navigationItem.leftBarButtonItem = nil
+        bookListViewModel.fetch(refresh: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if isFavorite == true {
+            bookListViewModel.fetch(refresh: true)
+            self.navigationItem.leftBarButtonItem = nil  
+        }
+    }
 }
 

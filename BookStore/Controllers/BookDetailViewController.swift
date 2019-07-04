@@ -10,23 +10,28 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
     
+    struct Constants {
+        static let unfavoriteimage: String = "unfavorite"
+        static let favoriteimage : String =  "favorite"
+    }
+    
     @IBOutlet weak var favorite: UIButton? {
         didSet {
             let filtered = SectionCache.sharedInstance.favoriteBooks
             
             favorite?.isSelected = false
-            favorite?.setImage(UIImage(imageLiteralResourceName : "unfavorite"), for: .normal)
+            favorite?.setImage(UIImage(imageLiteralResourceName : Constants.unfavoriteimage), for: .normal)
             
             if filtered.count != 0 {
                 for (key, _) in filtered {
                     if key == bookViewModel.id {
                         favorite?.isSelected = true
-                        favorite?.setImage(UIImage(imageLiteralResourceName : "favorite"), for: .normal)
+                        favorite?.setImage(UIImage(imageLiteralResourceName : Constants.favoriteimage), for: .normal)
                     }
                 }
             } else {
                 favorite?.isSelected = false
-                favorite?.setImage(UIImage(imageLiteralResourceName : "unfavorite"), for: .normal)
+                favorite?.setImage(UIImage(imageLiteralResourceName : Constants.unfavoriteimage), for: .normal)
             } 
         }
     }
@@ -65,10 +70,10 @@ class BookDetailViewController: UIViewController {
         
         if favorite?.isSelected == false {
             favorite?.isSelected = true
-            favorite?.setImage(UIImage(imageLiteralResourceName : "favorite"), for: .normal)
+            favorite?.setImage(UIImage(imageLiteralResourceName : Constants.favoriteimage), for: .normal)
         } else {
             favorite?.isSelected = false
-            favorite?.setImage(UIImage(imageLiteralResourceName : "unfavorite"), for: .normal)
+            favorite?.setImage(UIImage(imageLiteralResourceName : Constants.unfavoriteimage), for: .normal)
         }
     }
     
@@ -86,5 +91,3 @@ extension BookDetailViewController {
         bookViewModel = viewModel
     }
 }
-
-

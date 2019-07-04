@@ -31,13 +31,12 @@ extension BookViewModel {
     }
     
     mutating func allFavoriteBooks(book: BookViewModel) {
-        
         let filtered = SectionCache.sharedInstance.favoriteBooks
-
         if filtered.count != 0 {
             for (key, _) in filtered {
                 if key == book.id {
                     SectionCache.sharedInstance.favoriteBooks.removeValue(forKey: book.id)
+                    return
                 } else {
                      SectionCache.sharedInstance.favoriteBooks[book.id] = book
                 }
