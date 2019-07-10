@@ -1,5 +1,4 @@
 # BookStore
-Test IT Sector
 
 - XCode 10.2.1
 - Swif 5
